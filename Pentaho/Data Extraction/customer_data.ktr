@@ -457,6 +457,11 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>inputing east data from excel 2</from>
+      <to>Sort rows 4</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Sort rows 2</from>
       <to>Sorted merge</to>
       <enabled>Y</enabled>
@@ -482,8 +487,33 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>inputing east data from excel 2</from>
-      <to>Sort rows 4</to>
+      <from>Sorted merge</from>
+      <to>Unique rows</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
+      <to>Value mapper</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Value mapper</from>
+      <to>Replace in string</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Replace in string</from>
+      <to>Fuzzy match</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel input</from>
+      <to>Fuzzy match</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Fuzzy match</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -549,7 +579,7 @@
     <unique_rows>Y</unique_rows>
     <fields>
       <field>
-        <name>Customer ID</name>
+        <name>Customer_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -591,7 +621,7 @@
     <unique_rows>Y</unique_rows>
     <fields>
       <field>
-        <name>ï»¿Customer_ID</name>
+        <name>Customer_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -633,7 +663,7 @@
     <unique_rows>Y</unique_rows>
     <fields>
       <field>
-        <name>Customer ID</name>
+        <name>Customer_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -675,7 +705,7 @@
     <unique_rows>Y</unique_rows>
     <fields>
       <field>
-        <name>Customer ID</name>
+        <name>Customer_ID</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -694,33 +724,6 @@
     <GUI>
       <xloc>400</xloc>
       <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Sorted merge</name>
-    <type>SortedMerge</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>768</xloc>
-      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -763,7 +766,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\Data Analytics\Pentaho\Lect -04\customer data\CustomerData_Central.txt</name>
+      <name>D:/Data Analytics/Pentaho/Data Extraction/customer data/CustomerData_Central.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -881,7 +884,7 @@
       </field>
       <field>
         <name>Postal_Code</name>
-        <type>Integer</type>
+        <type>String</type>
         <format>#</format>
         <currency>Rs.</currency>
         <decimal>.</decimal>
@@ -962,7 +965,7 @@
     </partitioning>
     <fields>
       <field>
-        <name>Customer ID</name>
+        <name>Customer_ID</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -974,7 +977,7 @@
         <field_null_if/>
       </field>
       <field>
-        <name>Customer Name</name>
+        <name>Customer_Name</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -998,7 +1001,7 @@
         <field_null_if/>
       </field>
       <field>
-        <name>Age   </name>
+        <name>Age</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -1046,7 +1049,7 @@
         <field_null_if/>
       </field>
       <field>
-        <name>Postal Code</name>
+        <name>Postal_Code</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -1147,7 +1150,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\Data Analytics\Pentaho\Lect -04\customer data\CustomerData_South.zip</name>
+      <name>D:/Data Analytics/Pentaho/Data Extraction/customer data/CustomerData_South.zip</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1159,8 +1162,8 @@
     </filters>
     <fields>
       <field>
-        <name>Customer ID</name>
-        <type>None</type>
+        <name>Customer_ID</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1174,8 +1177,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Customer Name</name>
-        <type>None</type>
+        <name>Customer_Name</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1190,7 +1193,7 @@
       </field>
       <field>
         <name>Segment</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1205,7 +1208,7 @@
       </field>
       <field>
         <name>Age</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1220,7 +1223,7 @@
       </field>
       <field>
         <name>Country</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1235,7 +1238,7 @@
       </field>
       <field>
         <name>City</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1250,7 +1253,7 @@
       </field>
       <field>
         <name>State</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1264,8 +1267,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>Postal Code</name>
-        <type>None</type>
+        <name>Postal_Code</name>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1280,7 +1283,7 @@
       </field>
       <field>
         <name>Region</name>
-        <type>None</type>
+        <type>String</type>
         <format/>
         <currency/>
         <decimal/>
@@ -1372,12 +1375,7 @@
     <length>Characters</length>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>D:\Data Analytics\Pentaho\Lect -04\customer data\CustomerData_West</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name/>
+      <name>D:/Data Analytics/Pentaho/Data Extraction/customer data/CustomerData_West</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1389,7 +1387,7 @@
     </filters>
     <fields>
       <field>
-        <name>ï»¿Customer_ID</name>
+        <name>Customer_ID</name>
         <type>String</type>
         <format/>
         <currency>Rs.</currency>
@@ -1435,7 +1433,7 @@
       </field>
       <field>
         <name>Age</name>
-        <type>Integer</type>
+        <type>String</type>
         <format>#</format>
         <currency>Rs.</currency>
         <decimal>.</decimal>
@@ -1495,7 +1493,7 @@
       </field>
       <field>
         <name>Postal_Code</name>
-        <type>Integer</type>
+        <type>String</type>
         <format>#</format>
         <currency>Rs.</currency>
         <decimal>.</decimal>
@@ -1590,7 +1588,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>D:/Data Analytics/Pentaho/Lect -04/customer data/CustomerData_East.xlsx</name>
+      <name>D:/Data Analytics/Pentaho/Data Extraction/customer data/CustomerData_East.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1598,7 +1596,7 @@
     </file>
     <fields>
       <field>
-        <name>Customer ID</name>
+        <name>Customer_ID</name>
         <type>String</type>
         <length>10</length>
         <precision>-1</precision>
@@ -1610,7 +1608,7 @@
         <group/>
       </field>
       <field>
-        <name>Customer Name</name>
+        <name>Customer_Name</name>
         <type>String</type>
         <length>50</length>
         <precision>-1</precision>
@@ -1682,7 +1680,7 @@
         <group/>
       </field>
       <field>
-        <name>Postal Code</name>
+        <name>Postal_Code</name>
         <type>String</type>
         <length>10</length>
         <precision>-1</precision>
@@ -1743,6 +1741,347 @@
     <GUI>
       <xloc>128</xloc>
       <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Value mapper</name>
+    <type>ValueMapper</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <field_to_use>Country</field_to_use>
+    <target_field/>
+    <non_match_default/>
+    <fields>
+      <field>
+        <source_value>USA </source_value>
+        <target_value>United States</target_value>
+      </field>
+      <field>
+        <source_value>US</source_value>
+        <target_value>United States</target_value>
+      </field>
+      <field>
+        <source_value>United States of America</source_value>
+        <target_value>United States</target_value>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unique rows</name>
+    <type>Unique</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <count_rows>N</count_rows>
+    <count_field/>
+    <reject_duplicate_row>N</reject_duplicate_row>
+    <error_description/>
+    <fields>
+      <field>
+        <name>Customer_ID</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sorted merge</name>
+    <type>SortedMerge</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>City</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>#</replace_string>
+        <replace_by_string/>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+        <is_unicode>no</is_unicode>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1056</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Microsoft Excel input</name>
+    <type>ExcelInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <header>Y</header>
+    <noempty>Y</noempty>
+    <stoponempty>N</stoponempty>
+    <filefield/>
+    <sheetfield/>
+    <sheetrownumfield/>
+    <rownumfield/>
+    <sheetfield/>
+    <filefield/>
+    <limit>0</limit>
+    <encoding/>
+    <add_to_result_filenames>Y</add_to_result_filenames>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+    <file>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name>D:/Data Analytics/Pentaho/Data Extraction/customer data/LookupForStates.xlsx</name>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+      <name/>
+      <filemask/>
+      <exclude_filemask/>
+      <file_required>N</file_required>
+      <include_subfolders>N</include_subfolders>
+    </file>
+    <fields>
+      <field>
+        <name>State Name </name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+    </fields>
+    <sheets>
+    </sheets>
+    <strict_types>N</strict_types>
+    <error_ignored>N</error_ignored>
+    <error_line_skipped>N</error_line_skipped>
+    <bad_line_files_destination_directory/>
+    <bad_line_files_extension>warning</bad_line_files_extension>
+    <error_line_files_destination_directory/>
+    <error_line_files_extension>error</error_line_files_extension>
+    <line_number_files_destination_directory/>
+    <line_number_files_extension>line</line_number_files_extension>
+    <shortFileFieldName/>
+    <pathFieldName/>
+    <hiddenFieldName/>
+    <lastModificationTimeFieldName/>
+    <uriNameFieldName/>
+    <rootUriNameFieldName/>
+    <extensionFieldName/>
+    <sizeFieldName/>
+    <spreadsheet_type>POI</spreadsheet_type>
+    <password>Encrypted </password>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Fuzzy match</name>
+    <type>FuzzyMatch</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <from>Microsoft Excel input</from>
+    <lookupfield>State Name </lookupfield>
+    <mainstreamfield>State</mainstreamfield>
+    <outputmatchfield>match</outputmatchfield>
+    <outputvaluefield>measure value</outputvaluefield>
+    <caseSensitive>N</caseSensitive>
+    <closervalue>Y</closervalue>
+    <minimalValue>0</minimalValue>
+    <maximalValue>2</maximalValue>
+    <separator>,</separator>
+    <algorithm>levenshtein</algorithm>
+    <lookup>
+      <value>
+        <name>State Name </name>
+        <rename>State Name </rename>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Customer_ID</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Customer_Name</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Segment</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Age</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Country</name>
+        <rename/>
+      </field>
+      <field>
+        <name>City</name>
+        <rename/>
+      </field>
+      <field>
+        <name>State</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Postal_Code</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Region</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
