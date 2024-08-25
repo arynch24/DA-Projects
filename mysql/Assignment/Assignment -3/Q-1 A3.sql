@@ -5,7 +5,7 @@ CREATE TABLE Employee(
 EmployeeID INT PRIMARY KEY,
 EmployeeName VARCHAR(45) 
 );
-
+hy
 CREATE TABLE Department(
 Department_ID INT PRIMARY KEY,
 Department_Name VARCHAR(225),
